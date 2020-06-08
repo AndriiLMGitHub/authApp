@@ -5,9 +5,13 @@ from django.urls import include, path
 from allauth.socialaccount import providers
 
 from . import app_settings
+from . import views
 
 
-urlpatterns = [path('', include('allauth.account.urls'))]
+urlpatterns = [
+    path('', include('allauth.account.urls')),
+    path('profile/', views.accounts_profile, name="accounts_profile")
+]
 
 if app_settings.SOCIALACCOUNT_ENABLED:
     urlpatterns += [path('social/', include('allauth.socialaccount.urls'))]

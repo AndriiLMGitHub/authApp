@@ -1,0 +1,32 @@
+{% extends 'home/base-land.html' %}
+
+
+{% block jumb %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron news_posts">
+  <div class="container">
+    <h1 class="display-3">Всі товари на ваш смак!</h1>
+    <p>Тут визможете знайти нарізноманітніші товари і послуги для вашого бізнесу, дому, дозвілля, відпочинку та роботи! Реєструйтеся та додавайте власні товари і послуги для покраще ння життя нас всіх!</p>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'add_good' %}" role="button">Додати товар або послугу</a></p>
+  </div>
+</div>
+{% endblock %}
+<div class="container">
+
+{% block content %}
+  <div class="row">
+{% for post_commodity in post_commodities %}
+  <div class="col-md-4">
+    <div class="img_good" style="margin-bottom: 15px;"><a href="{{post_commodity.id}}"><img src="{{ post_commodity.image_good.url }}" alt="{{post_commodity.name_good}}" class="img-fluid img-thumbnail" style="max-height:265px;"></a></div>
+    <h3><a href="{{post_commodity.id}}">{{post_commodity.name_good}}</a></h3>
+    <p><small>{{post_commodity.date_published_good}}</small></p>
+    <p>{{post_commodity.price_good}} - UAH</p>
+    <p>{{post_commodity.description_good}}</p>
+    <p><a href="{{post_commodity.id}}" class="btn btn-primary btn-block">Детальніше</a></p>
+    <p><a href="{% url 'edit_commodity' post_commodity.id %}" class="btn btn-warning btn-block">Редагувати товар</a></p>
+    <p><a href="{% url 'delete_commodity' post_commodity.id %}" class="btn btn-danger btn-block">Видалити</a></p>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
+</div>

@@ -1,0 +1,22 @@
+{% extends 'home/base-land.html' %}
+
+{% block jumb %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron news_posts">
+  <div class="container">
+    <h1 class="display-3">Внесіть свої зміни  у форму, що знаходится нижче!</h1>
+    <p>Тут визможете знайти нарізноманітніші товари і послуги для вашого бізнесу, дому, дозвілля, відпочинку та роботи! Реєструйтеся та додавайте власні товари і послуги для покраще ння життя нас всіх!</p>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'add_good' %}" role="button">Додати товар або послугу</a></p>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Зберегти" class="btn btn-success">
+</form>
+
+
+{% endblock %}

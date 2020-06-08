@@ -1,0 +1,50 @@
+{% extends 'home/base-land.html' %}
+
+{% block jumb %}
+{% if user.is_authenticated %}
+<div class="offsetBlock">
+  <div class="headLinetitle"><h1 class="text-center display-4">Контактна форма зворотнього звязку!</h1></div>
+</div>
+{% else %}
+<div class="offsetBlock">
+  <div class="headLinetitle"><h1 class="text-center display-4">Для продовження, вам потрібно зареєструватися!</h1></div>
+</div>
+{% endif %}
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<form action="{% url  'contact' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div>
+    <label for="id_name">Имя:</label>
+    <input class="form-control" id="id_name" name="name" placeholder="Имя">
+	</div>
+  <br/>
+	<div>
+    <label for="id_subject">Тема:</label>
+    <input class="form-control" id="id_subject" name="subject" placeholder="Тема">
+	</div>
+  <br/>
+	<div>
+	  <label for="id_sender">E-mail:</label>
+    <input class="form-control" id="id_sender" name="sender" placeholder="Ваш e-mail">
+	</div>
+  <br/>
+	<div>
+	  <label for="id_message">Сообщение:</label>
+      <textarea class="form-control" id="id_message" name="message" placeholder="Введите ваше сообщение" rows="10" cols="20"></textarea>
+	</div>
+  <br/>
+	<div>
+	  <label for="id_copy">
+      <input type="checkbox" name="copy" id="id_copy">Надіслати копію собі</label>
+	</div>
+  <div><input type="submit" class="btn btn-primary" value="Надіслати повідомлення"/></div>
+</form>
+{% else %}
+<a href="/accounts/login" class="btn btn-outline-success">Sign In</a>
+<a href="/accounts/signup" class="btn btn-primary" style="margin: 0 0 0 5px;">Sign Up</a>
+{% endif %}
+
+
+{% endblock %}

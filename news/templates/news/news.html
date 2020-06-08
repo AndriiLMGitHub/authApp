@@ -1,7 +1,21 @@
 {% extends 'home/base-land.html' %}
 
-
+{% block jumb %}
+<div class="offsetBlock">
+  <div class="headLinetitle"><h1 class="text-center">Читайте найсвіжіше!</h1></div>
+</div>
+{% endblock %}
 {% block content %}
-
-<h1>Hello, World!</h1>
+<div class="row">
+{% for object in object_list %}
+  <div class="col-4 offsetBootom">
+    <div class="overFlow"><a href="{{ object.id }}"><img src="{{ object.image_post.url }}" class="img-thumbnail rounded-sm" alt="#"></a></div>
+    <br>
+  <a href="{{ object.id }}" ><h3>{{ object.name_post }}</h3></a>
+  <h6>{{ object.date_time_post }}</h6>
+  <p>{{ object.description_post }}</p>
+  <a href="{{ object.id }}" class="btn btn-primary">Детальніше</a>
+  </div>
+{% endfor %}
+</div>
 {% endblock %}

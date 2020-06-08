@@ -1,0 +1,69 @@
+{% extends 'home/base-land.html' %}
+
+{% block jumb %}
+<div class="offsetBlock"></div>
+{% endblock %}
+
+
+{% block content %}
+<div class="">
+  <div class="">
+    <div class=""><img src="{{ post.image_post.url }}" class="img-thumbnail rounded-sm" alt="#"></div>
+    <br>
+    <h3>{{ post.name_post }}</h3>
+    <h6>{{ post.date_time_post }}</h6>
+    <p>{{ post.description_post }}</p>
+  </div>
+  {% if comments %}
+{% for comment in comments %}
+    <div class="comment">
+      <h5>Кількість коментарів {{ forloop.counter }} </h5>
+        <p class="info">
+            Прокументував(ла) {{ comment.name }}
+        </p>
+        <small>{{ comment.created }}</small>
+        {{ comment.body|linebreaks }}
+        <p>
+          {% if user.is_authenticated  %}
+          <a href="{% url 'edit_comment' comment.id %}" class="btn btn-warning btn-sm">Редагувати коментар</a>
+          <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm">Видалити коментар</a>
+          {% else %}
+          <a href="{% url 'edit_comment' comment.id %}" class="btn btn-warning btn-sm disabled">Редагувати коментар</a>
+          <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm disabled">Видалити коментар</a>
+          {% endif %}
+        </p>
+    </div>
+    {% endfor %}
+{% else %}
+    <div>Поки що немає щодного коментаря! Будьте першими!</div>
+
+{% endif %}
+<!--<div><a href="" class="btn btn-warning">Коментувати</a></div>-->
+{% if user.is_authenticated  %}
+  {% if new_comment %}
+    <h2>Your comment has been added.</h2>
+  {% else %}
+  <div class="row">
+    <form action="{% url 'post_detail' post.id %}" method="post" class="col-4">
+        {% csrf_token %}
+        <div class="form-group"><input placeholder="Name" type="text" name="name" class="form-control"></div>
+        <div class="form-group"><input placeholder="Email" type="text" name="email" class="form-control"></div>
+        <div class="form-group">
+          <textarea placeholder="Enter your text" name="body" rows="8" cols="80" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <p><input type="submit" class="btn btn-success" value="Add comment"></p>
+        </div>
+    </form>
+    </div>
+  {% endif %}
+  {% else %}
+  <h3>Для того, щоб коментувати зареєструйтесь або увійдіть у свій аккаунт!</h3>
+  <h2>
+    <a href="/accounts/login" class="btn btn-outline-primary">Sign In</a>
+    <a href="/accounts/signup" class="btn btn-primary" style="margin: 0 0 0 5px;">Sign Up</a>
+  </h2>
+{% endif %}
+</div>
+
+{% endblock %}

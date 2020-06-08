@@ -28,10 +28,18 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']
 
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'andreydecua@gmail.com'
+EMAIL_HOST_PASSWORD = 'Andrey1212'
+
 # Application definition
 
 INSTALLED_APPS = [
+    'contact',
     'home',
+    'commodities',
     'news',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,6 +139,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.ynab',
 
 ]
+
 
 SITE_ID = 1
 
@@ -237,7 +246,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "Europe/Kiev"
 
 USE_I18N = True
 
@@ -250,3 +259,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

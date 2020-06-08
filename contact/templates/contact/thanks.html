@@ -1,0 +1,18 @@
+{% extends 'home/base-land.html' %}
+
+
+{% block jumb %}
+<div class="container">
+  <div class="offsetBlock">
+    <div class="headLinetitle">
+      <h1 class="text-center display-3">Дякуємо, {{user.username}} за вашу заявку, найближчим часом ми вяжемося з вами!</h1>
+      <div><a href="{% url 'home' %}" class="btn btn-block btn-success text-center">На головну!</a></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="display-3"></div>
+
+{% endblock %}
