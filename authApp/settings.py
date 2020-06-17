@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x)kyrdrr$u4#p72fapyfthaod=1=e7z#+3bjd-w8gp0z1de!68'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['secure-reaches-27689.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['secure-reaches-27689.herokuapp.com', '127.0.0.1', '']
 
 
 EMAIL_USE_TLS = True
@@ -227,8 +227,8 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+'''import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)'''
 
 
 
