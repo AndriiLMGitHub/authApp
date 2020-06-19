@@ -5,7 +5,7 @@ class PostNew(models.Model):
     name_post = models.CharField(max_length=120)
     description_post = models.TextField(max_length=400)
     date_time_post = models.DateTimeField()
-    image_post = models.ImageField(upload_to='image_folder/',)
+    image_post = models.FileField(upload_to='image_folder/',)
 
     def __str__(self):
         return self.name_post
