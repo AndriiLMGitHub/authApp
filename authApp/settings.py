@@ -24,14 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x)kyrdrr$u4#p72fapyfthaod=1=e7z#+3bjd-w8gp0z1de!68'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'secure-reaches-27689.herokuapp.com',
     '127.0.0.1',
-    'andriipythonanywhere.pythonanywhere.com',
+    'andreycreatorwebapp.pythonanywhere.com',
     ]
-
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
@@ -133,6 +131,7 @@ AUTHENTICATION_BACKENDS = (
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
+
 )
 
 WSGI_APPLICATION = 'authApp.wsgi.application'
@@ -194,3 +193,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
