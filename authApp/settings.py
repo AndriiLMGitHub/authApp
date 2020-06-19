@@ -27,7 +27,10 @@ SECRET_KEY = 'x)kyrdrr$u4#p72fapyfthaod=1=e7z#+3bjd-w8gp0z1de!68'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['secure-reaches-27689.herokuapp.com', '127.0.0.1', '']
+ALLOWED_HOSTS = [
+    'secure-reaches-27689.herokuapp.com',
+    '127.0.0.1',
+    'andriipythonanywhere.pythonanywhere.com',]
 
 
 EMAIL_USE_TLS = True
@@ -143,7 +146,7 @@ INSTALLED_APPS = [
 ]
 
 
-SITE_ID = 1
+#SITE_ID = 1
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
@@ -173,10 +176,10 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
