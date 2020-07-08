@@ -39,7 +39,7 @@ def edit_comment(request, id):
             CommentForm.email = request.POST.get("email")
             CommentForm.body = request.POST.get("body")
             edit_comment.save()
-            #return HttpResponseRedirect('/news/')
+            return HttpResponseRedirect('/news/')
     else:
         form = CommentForm(instance = edit_comment)
     return render(request, 'news/edit_comment.html', {'form' : form})
