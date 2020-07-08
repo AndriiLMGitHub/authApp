@@ -1,0 +1,18 @@
+{% extends 'home/base-land.html' %}
+
+
+{% block content %}
+
+<h1>Детальна інформація про - {{ food_single_post.titleFood }}</h1>
+<div class="imgPost">
+  <img src="{{ food_single_post.imageFood.url }}" alt="{{ food_single_post.titleFood }}">
+</div>
+<p>{{ food_single_post.textFood }}</p>
+<small>{{ food_single_post.date_published }}</small>
+<div><a href="{% url 'food' %}" class="btn btn-md btn-warning">Назад до списку новин</a></div>
+
+{# for i in range(5) #}
+  <h5>{{ food_single_post.titleFood }}</h5>
+{# endfor #}
+
+{% endblock %}

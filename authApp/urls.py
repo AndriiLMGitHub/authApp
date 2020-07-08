@@ -25,6 +25,7 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('contact/', include('contact.urls')),
     path('commodities/', include('commodities.urls')),
+    path('food/', include('food.urls')),
 
 
     path('accounts/', include('allauth.urls')),

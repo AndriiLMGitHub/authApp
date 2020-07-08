@@ -24,8 +24,12 @@
 }
 
 .img_good {
-  
+
 }
 .img_good a img {
 
+}
+
+.likePost {
+  cursor: pointer;
 }
