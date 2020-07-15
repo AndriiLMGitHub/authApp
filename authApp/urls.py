@@ -26,6 +26,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('commodities/', include('commodities.urls')),
     path('food/', include('food.urls')),
+    path('covid19/', include('covid19.urls')),
+    path('blog/', include('blog.urls')),
 
 
     path('accounts/', include('allauth.urls')),

@@ -40,6 +40,8 @@ EMAIL_HOST_PASSWORD = 'Andrey1212'
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
+    'covid19',
     'food',
     'contact',
     'home',
@@ -176,6 +178,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+#LANGUAGE_CODE = 'uk' українська мова адміністрування
 
 TIME_ZONE = "Europe/Kiev"
 
