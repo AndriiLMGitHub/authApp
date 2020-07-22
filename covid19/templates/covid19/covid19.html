@@ -1,0 +1,39 @@
+{% extends 'home/base-land.html' %}
+
+{% block jumb %}
+
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1 class="display-1 text-center">Statistic of Covid-19</h1>
+    <div class="alert alert-warning" role="alert">
+      <h1 class="display-3">Current cases - {{ get_total_active_cases }}</h1>
+      <h1 class="display-3">Total deaths - {{ get_total_deaths }}</h1>
+      <h1 class="display-3">Total confirmed cases - {{ get_total_confirmed_cases }}</h1>
+    </div>
+    <div class="alert alert-success">
+      <h1 class="display-4">Total recovered - {{get_total_recovered}}</h1>
+    </div>
+
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+
+    <div class="alert alert-info">
+      <h4 class="display-2">{{ ukraine_cases.country }}</h4>
+      <h4>Total confirmed cases - {{ ukraine_cases.confirmed }}</h4>
+      <h4>Total deaths - {{ ukraine_cases.deaths }}</h4>
+      <h4>Current cases- {{ ukraine_cases.active }}</h4>
+      <h4>Total recovered - {{ ukraine_cases.recovered }}</h4>
+    </div>
+
+    <h6>{{ list_countries }}</h6>
+    <p><a class="btn btn-warning btn-lg" href="#" role="button">Learn more, {{user.username}}</a></p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="">{{ get_all_data }}</div>
+
+{% endblock %}
