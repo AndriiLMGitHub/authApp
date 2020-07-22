@@ -145,13 +145,14 @@ WSGI_APPLICATION = 'authApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'aazoaksr',
+        'USER' : 'aazoaksr',
+        'PASSWORD' : 'Pol2r8k5QOFTuN-vTAh5DxWjhpLzBgZQ',
+        'HOST' : 'dumbo.db.elephantsql.com',
+        'PORT' : '5432'
     }
 }
-
-'''import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)'''
 
 
 
